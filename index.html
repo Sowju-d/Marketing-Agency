@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inspirito Digital Agency - Home</title>
+
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-navbar">
+
+        <div class="container-fluid container-xxl">
+
+
+
+           <a class="navbar-brand" href="#home">
+
+    <img src="logo.jpg" alt="INSPIRITO Digital Agency Logo" height="80">
+
+</a>
+
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+
+
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+
+                <ul class="navbar-nav">
+
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+
+                    <li class="nav-item"><a class="nav-link" href="#about-us">About Us</a></li>
+
+
+
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"> Services </a>
+
+                        <ul class="dropdown-menu">
+
+   
+
+    <li><a class="dropdown-item" href="HTML/Services/meta-ads.html">Meta Ads Strategy</a></li>
+
+    <li><a class="dropdown-item" href="HTML/Services/seo.html">SEO Optimization</a></li>
+
+    <li><a class="dropdown-item" href="HTML/Services/website-dev.html">Website Development</a></li>
+
+    <li><a class="dropdown-item" href="HTML/Services/social-media.html">Social Media Management</a></li>
+
+    <li><a class="dropdown-item" href="HTML/Services/email-marketing.html">Email Marketing</a></li>
+
+    <li><a class="dropdown-item" href="HTML/Services/content-creation.html">Content Creation</a></li>
+
+    <li><a class="dropdown-item" href="HTML/Services/branding-design.html">Branding & Design</a></li>
+
+    <li><a class="dropdown-item" href="HTML/Services/google-ads.html">Google Ads Mastery</a></li>
+
+</ul>
+
+                    </li>
+
+                    <li class="nav-item">
+
+    <a class="nav-link" href="#about-us">Contact Us</a>
+
+</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="d-none d-lg-flex">
+
+                <a href="tel:+1234567890" class="btn btn-primary btn-cta">CALL US</a>
+
+            </div>
+
+
+
+        </div>
+
+    </nav>
+
+
+
+<section id="hero" class="d-flex align-items-center">
+    <div id="heroCarousel" class="carousel slide w-100 h-100" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner h-100">
+
+            <div class="carousel-item active slide-one"> 
+                <div class="container-fluid container-xxl d-flex align-items-center justify-content-center h-100 text-center text-md-start">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="tagline">WE ARE LEADER IN</p>
+                            <h1 class="slogan">Creative & Innovative <br> Digital Solution</h1>
+                            <div class="hero-actions mt-4">
+                                <a href="#" class="btn btn-primary btn-lg btn-get-started me-3" data-bs-toggle="modal" data-bs-target="#enquiryModal">GET STARTED</a> 
+    
+                               <a href="#about-us" class="btn-hero-link ms-3 smooth-scroll">LEARN MORE &rarr;</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item slide-two">
+                 <div class="container-fluid container-xxl d-flex align-items-center justify-content-center h-100 text-center text-md-start">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="tagline">UNLOCK YOUR POTENTIAL</p>
+                            <h1 class="slogan">Drive Measurable Growth <br> with Paid Media</h1>
+                            <div class="hero-actions mt-4">
+                                <a href="#" class="btn btn-primary btn-lg btn-get-started me-3" data-bs-toggle="modal" data-bs-target="#enquiryModal">GET STARTED</a>
+                                <a href="#impact-counters" class="btn-hero-link ms-3 smooth-scroll">KNOW OUR ACHIEVEMENTS &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-item slide-three">
+                 <div class="container-fluid container-xxl d-flex align-items-center justify-content-center h-100 text-center text-md-start">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p class="tagline">EXPERTS IN STRATEGY</p>
+                            <h1 class="slogan">Build a Powerful <br> Online Brand Presence</h1>
+                            <div class="hero-actions mt-4">
+                                <a href="#" class="btn btn-primary btn-lg btn-get-started me-3" data-bs-toggle="modal" data-bs-target="#enquiryModal">GET STARTED</a>
+                                <a href="#services" class="btn-hero-link ms-3 smooth-scroll">KNOW OUR SERVICES &rarr;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<main>
+
+        <section id="about-us" class="py-5 py-md-5">
+
+        <div class="container container-xxl">
+
+            <div class="row">
+
+
+
+                <div class="col-lg-6 mb-4 mb-lg-0">
+
+                    <p class="section-subtitle">ABOUT US</p>
+
+                    <h2 class="section-title mb-4">Who We Are</h2>
+
+                    <p class="lead-text">Inspirito is a results-driven digital marketing agency dedicated to helping businesses thrive in the online world. We combine creative strategy with data-backed performance to deliver measurable growth.</p>
+
+                    <p class="body-text">Our commitment is to transparency, innovation, and long-term partnerships, ensuring your digital presence is not just seen, but felt and remembered by your target audience.</p>
+
+                </div>
+
+
+
+                <div class="col-lg-6">
+
+                    <div class="quick-enquiry-box p-4 p-md-5">
+
+                        <h3 class="text-center mb-4 text-white">Quick Enquiry</h3>
+
+                        <form action="#" method="POST">
+
+                            <div class="mb-3">
+
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+
+                            </div>
+
+                            <div class="mb-3">
+
+                                <input type="tel" class="form-control" placeholder="Your Phone Number" required>
+
+                            </div>
+
+                            <div class="mb-4">
+
+                                <select class="form-select" required>
+
+                                    <option value="" disabled selected>Select Purpose (Service)</option>
+
+                                    <option value="google-ads">1. Google Ads Page</option>
+
+                                    <option value="meta-ads">2. Meta Ads Page</option>
+
+                                    <option value="seo">3. SEO Page</option>
+
+                                    <option value="website-dev">4. Website Development Page</option>
+
+                                    <option value="social-media">5. Social Media Management Page</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="d-grid">
+
+                                <button type="submit" class="btn btn-lg btn-enquiry text-dark">Submit Request</button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <div class="modal fade" id="enquiryModal" tabindex="-1" aria-labelledby="enquiryModalLabel" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+
+            <div class="modal-content">
+
+                <div class="modal-header">
+
+                    <h5 class="modal-title" id="enquiryModalLabel">⚡ Get a Free Consultation!</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                </div>
+
+                <div class="modal-body">
+
+                    <p class="text-center">Don't miss out on boosting your digital presence. Tell us about your project!</p>
+
+                    <form action="#" method="POST">
+
+                        <div class="mb-3">
+
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <input type="tel" class="form-control" placeholder="Your Phone Number" required>
+
+                        </div>
+
+                        <div class="mb-4">
+
+                            <select class="form-select" required>
+
+                                <option value="" disabled selected>I'm interested in...</option>
+
+                                <option value="google-ads">Google Ads</option>
+
+                                <option value="meta-ads">Meta Ads</option>
+
+                                <option value="seo">SEO</option>
+
+                                <option value="website-dev">Website Development</option>
+
+                            </select>
+
+                        </div>
+
+                        <div class="d-grid">
+
+                            <button type="submit" class="btn btn-lg btn-modal-submit">Submit Details</button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    </main>
+
+
+
+    <section id="services" class="py-5 py-md-5">
+
+        <div class="container container-xxl text-center">
+
+            <p class="section-subtitle">OUR FOCUS</p>
+
+            <h2 class="section-title mb-5">Digital Growth Solutions</h2>
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+
+                    <a href="HTML/Services/google-ads.html" class="service-box">
+
+                        <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+
+                        <h4 class="service-title">Google Ads (PPC)</h4>
+
+                        <p class="service-text">Maximize conversions with targeted search and display campaigns.</p>
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <a href="HTML/Services/meta-ads.html" class="service-box">
+
+                        <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+
+                        <h4 class="service-title">Meta Ads (Social Media)</h4>
+
+                        <p class="service-text">Reach your ideal customers on Facebook and Instagram platforms.</p>
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <a href="HTML/Services/seo.html" class="service-box">
+
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+
+                        <h4 class="service-title">SEO Optimization</h4>
+
+                        <p class="service-text">Improve organic rankings and drive consistent, free traffic.</p>
+
+                    </a>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <a href="HTML/Services/website-dev.html" class="service-box">
+
+                        <div class="service-icon"><i class="fas fa-code"></i></div>
+
+                        <h4 class="service-title">Website Development</h4>
+
+                        <p class="service-text">Build high-performance, mobile-responsive corporate websites.</p>
+
+                    </a>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <a href="HTML/Services/social-media.html" class="service-box">
+
+                        <div class="service-icon"><i class="fas fa-share-alt"></i></div>
+
+                        <h4 class="service-title">Social Media Mgt.</h4>
+
+                        <p class="service-text">Full-service community management and growth strategy.</p>
+
+                    </a>
+
+                </div>
+
+                <div class="col-lg-4 col-md-6 d-none d-lg-block">
+
+                    <a href="HTML/Services/email-marketing.html" class="service-box">
+
+                        <div class="service-icon"><i class="fas fa-envelope-open-text"></i></div>
+
+                        <h4 class="service-title">Email Marketing</h4>
+
+                        <p class="service-text">Engage leads and nurture customer relationships through email.</p>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="impact-counters" class="py-5 bg-primary text-white">
+    <div class="container container-xxl text-center">
+        <div class="row text-center justify-content-around">
+            <div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0">
+                <div class="counter-box">
+                    <h2 class="counter-value display-4 fw-bold" data-target="850">0</h2>
+                    <p class="counter-label text-uppercase">Projects Completed</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6 mb-4 mb-lg-0">
+                <div class="counter-box">
+                    <h2 class="counter-value display-4 fw-bold" data-target="15">0</h2>
+                    <p class="counter-label text-uppercase">Years of Experience</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="counter-box">
+                    <h2 class="counter-value display-4 fw-bold" data-target="270">0</h2>
+                    <p class="counter-label text-uppercase">Happy Clients</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="counter-box">
+                    <h2 class="counter-value display-4 fw-bold" data-target="12000">0</h2>
+                    <p class="counter-label text-uppercase">Total Ad Clicks</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="team" class="py-5 py-md-5 bg-white">
+
+        <div class="container container-xxl text-center">
+
+            <p class="section-subtitle">OUR TEAM</p>
+
+            <h2 class="section-title mb-5">We Are A Creative Team For Your Dream Project</h2>
+
+
+
+            <div class="row justify-content-center g-4">
+
+               
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="team-member-box">
+
+                        <div class="member-img">
+
+                            <img src="assets/img/team1.jpg" class="img-fluid rounded-circle" alt="Team Member 1">
+
+                        </div>
+
+                        <h4 class="member-name">Full Name 1</h4>
+
+                        <span class="member-role">CEO & Strategist</span>
+
+                        <p class="member-desc">Leads our vision and drives large-scale digital transformation projects.</p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="team-member-box">
+
+                        <div class="member-img">
+
+                            <img src="assets/img/team2.jpg" class="img-fluid rounded-circle" alt="Team Member 2">
+
+                        </div>
+
+                        <h4 class="member-name">Full Name 2</h4>
+
+                        <span class="member-role">Head of Marketing</span>
+
+                        <p class="member-desc">Expert in performance marketing, focusing on ROI and paid media success.</p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="team-member-box">
+
+                        <div class="member-img">
+
+                            <img src="assets/img/team3.jpg" class="img-fluid rounded-circle" alt="Team Member 3">
+
+                        </div>
+
+                        <h4 class="member-name">Full Name 3</h4>
+
+                        <span class="member-role">Lead Developer</span>
+
+                        <p class="member-desc">Ensures all client websites and apps are built with modern technology and speed.</p>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="testimonials" class="py-5 py-md-5">
+
+        <div class="container container-xxl text-center">
+
+            <p class="section-subtitle">TESTIMONIAL</p>
+
+            <h2 class="section-title mb-5">What Our Clients Say!</h2>
+
+
+
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+
+                <div class="carousel-inner">
+
+
+
+                    <div class="carousel-item active">
+
+                        <div class="row justify-content-center">
+
+                            <div class="col-lg-8">
+
+                                <div class="testimonial-box">
+
+                                    <div class="star-rating mb-3">
+
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                                    </div>
+
+                                    <p class="feedback-text">"Inspirito completely transformed our digital strategy. Their Google Ads campaigns delivered an impressive 40% increase in qualified leads within the first quarter. Highly professional and results-focused!"</p>
+
+                                    <div class="client-info mt-4">
+
+                                        <img src="assets/img/client1.png" class="client-img rounded-circle mb-2" alt="Client 1">
+
+                                        <h5 class="client-name">Client Name 1</h5>
+
+                                        <span class="client-profession">Tech Startup CEO</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="carousel-item">
+
+                        <div class="row justify-content-center">
+
+                            <div class="col-lg-8">
+
+                                <div class="testimonial-box">
+
+                                    <div class="star-rating mb-3">
+
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+
+                                    </div>
+
+                                    <p class="feedback-text">"The Website Development team at Inspirito Marketing Agency built a stunning, fast, and SEO-friendly site for our brand. The process was smooth, and they were responsive to all our needs. Five stars!"</p>
+
+                                    <div class="client-info mt-4">
+
+                                        <img src="assets/img/client2.png" class="client-img rounded-circle mb-2" alt="Client 2">
+
+                                        <h5 class="client-name">Client Name 2</h5>
+
+                                        <span class="client-profession">E-commerce Founder</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="carousel-item">
+
+                        <div class="row justify-content-center">
+
+                            <div class="col-lg-8">
+
+                                <div class="testimonial-box">
+
+                                    <div class="star-rating mb-3">
+
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+
+                                    </div>
+
+                                    <p class="feedback-text">"We rely on Inspirito for our Social Media Management. Their content is creative, engaging, and has significantly improved our brand visibility and customer interaction."</p>
+
+                                    <div class="client-info mt-4">
+
+                                        <img src="assets/img/client3.png" class="client-img rounded-circle mb-2" alt="Client 3">
+
+                                        <h5 class="client-name">Client Name 3</h5>
+
+                                        <span class="client-profession">Retail Marketing Manager</span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                    <span class="visually-hidden">Previous</span>
+
+                </button>
+
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                    <span class="visually-hidden">Next</span>
+
+                </button>
+
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+    <footer id="footer">
+
+        <div class="footer-top">
+
+            <div class="container container-xxl">
+
+                <div class="row">
+
+
+
+                    <div class="col-lg-4 col-md-6 footer-info">
+
+                        <h4>Contact Us</h4>
+
+                        <p>
+
+                            <i class="fas fa-map-marker-alt"></i> 123 Street, New York, USA<br>
+
+                            <i class="fas fa-phone-alt"></i> +012 345 6789<br>
+
+                            <i class="fas fa-envelope"></i> info@example.com<br>
+
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="col-lg-3 col-md-6 footer-links">
+
+                        <h4>Quick Links</h4>
+
+                        <ul>
+
+                            <li><i class="fas fa-chevron-right"></i> <a href="#home">Home</a></li>
+
+                            <li><i class="fas fa-chevron-right"></i> <a href="#about-us">About Us</a></li>
+
+                            <li><i class="fas fa-chevron-right"></i> <a href="#services">Our Services</a></li>
+
+                            <li><i class="fas fa-chevron-right"></i> <a href="#contact-us">Contact Us</a></li>
+
+                            <li><i class="fas fa-chevron-right"></i> <a href="#">Terms of service</a></li>
+
+                        </ul>
+
+                    </div>
+
+
+
+                    <div class="col-lg-5 col-md-12 footer-newsletter">
+
+                        <h4>Join Our Newsletter</h4>
+
+                        <p>Receive exclusive marketing tips and insights directly to your inbox.</p>
+
+                        <form action="" method="post">
+
+                            <input type="email" name="email" placeholder="Your email address"><input type="submit" value="Subscribe">
+
+                        </form>
+
+                        <div class="social-links mt-3">
+
+                            <a href="#" class="twitter"><i class="fab fa-twitter"></i></a>
+
+                            <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
+
+                            <a href="#" class="instagram"><i class="fab fa-instagram"></i></a>
+
+                            <a href="#" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="container container-xxl">
+
+            <div class="copyright-bar">
+
+                &copy; Copyright 2025. **Your Site Name**. All Rights Reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script src="JS/script.js"></script> 
+
+</body>
+
+
+
+</html>
