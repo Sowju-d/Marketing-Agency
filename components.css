@@ -1,0 +1,293 @@
+/* Navbar & Dropdown */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar img { height: 80px; }
+
+.nav-links { display: flex; list-style: none; }
+.nav-links li { margin-left: 30px; position: relative; }
+.nav-links a { text-decoration: none; color: var(--primary-blue); font-weight: 600; }
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: var(--white);
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    top: 100%;
+    list-style: none;
+}
+
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content li a { padding: 12px; display: block; font-size: 14px; }
+.dropdown-content li a:hover { background: var(--light-gray); }
+
+/* Hero Slider */
+.hero { height: 100vh; position: relative; overflow: hidden; }
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.slide.active { opacity: 1; }
+.hero-content h1 { color: var(--white); font-size: 4rem; }
+.hero-content h2 { color: var(--accent-orange); margin-bottom: 20px; }
+.hero-content p { color: var(--white); font-size: 1.2rem; margin-bottom: 30px; }
+
+
+/* Sidebar CTA */
+.side-cta {
+    position: fixed;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-90deg);
+    background: var(--accent-orange);
+    color: white;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    border-radius: 5px 5px 0 0;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+}
+
+/* Form Overlay */
+.form-overlay.active { right: 0; }
+.form-overlay input, .form-overlay select, .form-overlay textarea {
+    width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 5px;
+}
+/* Ensure the overlay covers the screen and centers the side form */
+.form-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    display: none; /* Controlled by JS */
+    justify-content: flex-end; /* Aligns form to the right side */
+}
+
+.side-form {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    background: white;
+    padding: 40px;
+    overflow-y: auto;
+    position: relative;
+    animation: slideInRight 0.4s ease;
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+/* Comparison Boxes */
+.comparison-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 50px 0;
+}
+.comp-box {
+    flex: 1; padding: 40px; border-radius: 15px; text-align: center;
+    transition: 0.3s; border: 2px solid transparent;
+}
+.comp-box.error { background: #fff5f5; border-color: #ffdada; }
+.comp-box.success { background: #f0f7ff; border-color: #d0e7ff; }
+.comp-box:hover { transform: scale(1.02); }
+.icon-box { 
+    width: 50px; height: 50px; margin: 0 auto 20px; border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center; font-weight: bold;
+}
+.error .icon-box { background: #ff4d4d; color: white; }
+.success .icon-box { background: var(--primary-blue); color: white; }
+
+/* Roadmap Cards */
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.road-card {
+    background: white; border: 1px solid #eee; padding: 30px; border-radius: 12px;
+    position: relative; overflow: hidden;
+}
+.road-num {
+    font-size: 4rem; position: absolute; right: -10px; top: -10px;
+    opacity: 0.05; font-weight: 800; color: var(--primary-blue);
+}
+
+/* Heading Style */
+.orange-heading {
+    color: var(--accent-orange);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Workflow Container */
+.workflow-container {
+    position: relative;
+    padding: 20px 0;
+}
+
+/* The Connector Line (Workflow Diagram Feel) */
+.roadmap-line {
+    position: absolute;
+    top: 50px;
+    left: 5%;
+    right: 5%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-orange));
+    z-index: 1;
+    border-radius: 10px;
+    opacity: 0.3;
+}
+
+.roadmap-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Animated Road Cards */
+.road-card {
+    background: white;
+    border: 2px solid #eee;
+    padding: 25px;
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0; /* Starts hidden for JS reveal */
+    transform: translateY(30px);
+}
+
+.road-card.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.road-card:hover {
+    border-color: var(--accent-orange);
+    box-shadow: 0 10px 25px rgba(245, 130, 32, 0.15);
+    transform: translateY(-10px);
+}
+
+.road-num {
+    background: var(--primary-blue);
+    color: white;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    font-weight: bold;
+    border: 3px solid white;
+    box-shadow: 0 0 0 3px var(--primary-blue);
+}
+
+.road-card h4 {
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+/* Responsive: Stack vertically on mobile */
+@media (max-width: 992px) {
+    .roadmap-grid { grid-template-columns: 1fr; }
+    .roadmap-line { display: none; }
+}
+
+.services-section {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for a cleaner, tighter look */
+    gap: 20px;
+}
+
+.service-card {
+    background-color: var(--primary-blue);
+    padding: 25px 20px;
+    border-radius: 12px;
+    text-align: center;
+    text-decoration: none; /* Removes link underline */
+    color: white;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px; /* Forces all cards to be the same height */
+}
+
+.service-card:hover {
+    transform: scale(1.03);
+    border-color: var(--accent-orange);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.service-card h4 {
+    color: var(--accent-orange);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.service-card p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #cbd5e0;
+}
+
+.mini-result {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-orange);
+    background: rgba(245, 130, 32, 0.1);
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid rgba(245, 130, 32, 0.3);
+}
+
+/* Responsive: 2 columns on tablets, 1 on mobile */
+@media (max-width: 1100px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+}
+

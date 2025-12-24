@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outcome-Aligned Performance Engagement | Inspirito</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #00416A;
+            --dark-blue: #002b4d;
+            --accent-orange: #f58220;
+            --text-gray: #444;
+            --light-bg: #f4f7fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--text-gray); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav { background: #fff; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-orange); }
+
+        /* Hero Section */
+        .service-hero { padding: 100px 0; background: linear-gradient(rgba(0,43,77,0.85), rgba(0,43,77,0.85)), url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1200&q=80'); background-size: cover; color: white; text-align: center; }
+        .service-hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .service-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.9; }
+
+        /* Content Sections */
+        .section-padding { padding: 80px 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .orange-heading { color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; display: block; }
+        h2 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; }
+
+        /* Partnership Card Style */
+        .partnership-box { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 20px 50px rgba(0,0,0,0.08); position: relative; overflow: hidden; }
+        .partnership-box::before { content: ''; position: absolute; top: 0; left: 0; width: 6px; height: 100%; background: var(--accent-orange); }
+
+        /* Workflow Blocks */
+        .engagement-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 50px; }
+        .step-card { border: 1px solid #e1e8ed; padding: 30px; border-radius: 12px; transition: 0.3s; }
+        .step-card:hover { border-color: var(--accent-orange); background: #fff; transform: translateY(-5px); }
+        .step-card h4 { color: var(--primary-blue); margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        .step-card h4 i { color: var(--accent-orange); }
+
+        /* Results Bar */
+        .results-section { background: var(--dark-blue); color: white; padding: 60px 0; border-radius: 20px; margin: 40px 0; }
+        .results-flex { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 30px; }
+        .result-item h3 { font-size: 2rem; color: var(--accent-orange); margin-bottom: 5px; }
+
+        /* Floating CTA & Popup */
+        .side-cta { position: fixed; right: 0; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: right bottom; background: var(--accent-orange); color: white; padding: 12px 25px; font-weight: bold; cursor: pointer; border-radius: 10px 10px 0 0; z-index: 999; }
+        .popup { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
+        .popup-content { background: #fff; margin: 5% auto; padding: 40px; border-radius: 15px; width: 90%; max-width: 500px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; }
+        .form-group { margin-bottom: 15px; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+        .popup-submit-btn { width: 100%; padding: 15px; background: var(--accent-orange); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+
+        /* Footer */
+        footer { background: var(--dark-blue); color: white; padding: 80px 0 20px; margin-top: 50px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+        .footer-links ul { list-style: none; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; line-height: 2; transition: 0.3s; }
+        .footer-links a:hover { color: var(--accent-orange); }
+
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .service-hero h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">
+                <img src="/Images/logo.jpg" alt="Logo" style="height: 40px;"> Inspirito
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="google-ads.html">Google Ads</a></li>
+                <li><a href="performance-engagement.html" class="active">Partnership Model</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleForm()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="service-hero">
+        <div class="container">
+            <span class="orange-heading" style="color: white;">Skin in the Game</span>
+            <h1>Outcome-Aligned Performance Engagement</h1>
+            <p>We don't just work for you; we work with you. Our model is built on shared accountability, where our success is directly tied to the growth of your business.</p>
+            <button class="popup-submit-btn" style="max-width: 320px;" onclick="toggleForm()">Explore Our Engagement Model</button>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="orange-heading">Shared Accountability</span>
+                    <h2>A Partnership, Not a Provider</h2>
+                    <p>Traditional agency models focus on "deliverables"—number of ads, number of pages, or hours worked. At Inspirito, we believe accountability should be shared. We align our engagement with your <strong>business outcomes</strong>, ensuring that every strategic move we make is focused on sustainable revenue improvement and risk reduction for you.</p>
+                </div>
+                <div class="partnership-box">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 20px;">Why Clients Choose This Model:</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 15px;"><i class="fas fa-handshake" style="color: var(--accent-orange); margin-right: 10px;"></i> <strong>Aligned Interests:</strong> We win when you win.</li>
+                        <li style="margin-bottom: 15px;"><i class="fas fa-shield-alt" style="color: var(--accent-orange); margin-right: 10px;"></i> <strong>Reduced Risk:</strong> Performance-based milestones.</li>
+                        <li><i class="fas fa-rocket" style="color: var(--accent-orange); margin-right: 10px;"></i> <strong>Long-term Focus:</strong> Engineered for sustainable growth.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="engagement-steps">
+                <div class="step-card">
+                    <h4><i class="fas fa-flag-checkered"></i> Success Benchmarks</h4>
+                    <p>Defining crystal-clear KPIs that reflect real business growth before we begin.</p>
+                </div>
+                <div class="step-card">
+                    <h4><i class="fas fa-map-signs"></i> Defined Milestones</h4>
+                    <p>Setting specific performance hurdles that trigger progress and scaling.</p>
+                </div>
+                <div class="step-card">
+                    <h4><i class="fas fa-search-dollar"></i> Transparent Metrics</h4>
+                    <p>Real-time measurement mechanisms so both teams see the exact same data.</p>
+                </div>
+                <div class="step-card">
+                    <h4><i class="fas fa-sync-alt"></i> Continuous Alignment</h4>
+                    <p>Frequent reviews to ensure our strategy remains perfectly synced with your goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="results-section">
+            <div class="results-flex">
+                <div class="result-item">
+                    <h3>Reduced Risk</h3>
+                    <p>Performance Focused</p>
+                </div>
+                <div class="result-item">
+                    <h3>Long-Term</h3>
+                    <p>Collaboration</p>
+                </div>
+                <div class="result-item">
+                    <h3>Sustainable</h3>
+                    <p>Revenue Growth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="side-cta" onclick="toggleForm()">
+        <span>Quick Inquiry</span>
+    </div>
+
+    <div id="cta-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="toggleForm()">&times;</span>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3>Partner With Us</h3>
+                <p>Let's align our goals with your revenue.</p>
+            </div>
+            <form id="inquiry-form">
+                <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                <div class="form-group"><input type="email" placeholder="Business Email" required></div>
+                <div class="form-group"><input type="tel" placeholder="Phone Number" required></div>
+                <div class="form-group">
+                    <select required>
+                        <option value="performance-engagement" selected>Performance Engagement</option>
+                        <option value="google-ads">Google Ads Management</option>
+                        <option value="lead-flow">Lead Flow Analysis</option>
+                    </select>
+                </div>
+                <button type="submit" class="popup-submit-btn">Request Partnership Discussion</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+              <div>
+                <h3>Inspirito</h3>
+                <div class="company-address"
+                    style="margin: 20px 0; font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
+                    <p>📍 102, Shanti Niwas Building,<br>
+                        &nbsp;&nbsp;&nbsp;Behind Chitale Bandhu, Baner,<br>
+                        &nbsp;&nbsp;&nbsp;Pune - 411045</p>
+                    <p>📞 <a href="tel:+918928484777" style="color: inherit; text-decoration: none;">+91 89284 84777</a>
+                    </p>
+                    <p>✉️ <a href="mailto:Info@inspirito.in"
+                            style="color: inherit; text-decoration: none;">Info@inspirito.in</a></p>
+                    <p>🌐 <a href="https://www.inspirito.in" target="_blank"
+                            style="color: inherit; text-decoration: none;">www.inspirito.in</a></p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Our Methods</h4>
+                <ul>
+                    <li><a href="performance-engagement.html">Partnership Model</a></li>
+                    <li><a href="performance-tracking.html">Funnel Tracking</a></li>
+                    <li><a href="revenue-leakage.html">Leakage Identification</a></li>
+                </ul>
+            </div>
+             <div class="footer-links">
+                <h4>Contact Us</h4>
+                <div style="margin-top: 20px;">
+                    <i class="fab fa-linkedin" style="margin-right: 15px;"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram" style="margin-left: 15px;"></i>
+                </div>
+            </div>
+            
+        </div>
+        <div style="text-align: center; margin-top: 40px; font-size: 0.8rem; color: rgba(255,255,255,0.5);">
+            &copy; 2025 Inspirito Digital Agency. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleForm() {
+            const popup = document.getElementById('cta-popup');
+            const isVisible = popup.style.display === 'block';
+            popup.style.display = isVisible ? 'none' : 'block';
+            document.body.style.overflow = isVisible ? 'auto' : 'hidden';
+        }
+        window.onclick = function(e) {
+            const popup = document.getElementById('cta-popup');
+            if (e.target === popup) toggleForm();
+        }
+    </script>
+</body>
+</html>

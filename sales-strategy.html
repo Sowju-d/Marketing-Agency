@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Strategy & Process Improvement | Inspirito</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #00416A;
+            --dark-blue: #002b4d;
+            --accent-orange: #f58220;
+            --text-gray: #444;
+            --light-bg: #f8f9fb;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--text-gray); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav { background: #fff; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-orange); }
+
+        /* Hero Section */
+        .service-hero { padding: 100px 0; background: linear-gradient(135deg, var(--dark-blue), var(--primary-blue)); color: white; text-align: center; }
+        .service-hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .service-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.9; }
+
+        /* Content Sections */
+        .section-padding { padding: 80px 0; }
+        .grid-2 { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
+        .orange-heading { color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; display: block; }
+        h2 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; line-height: 1.2; }
+
+        /* Playbook Style Cards */
+        .strategy-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-top: 50px; }
+        .strategy-card { background: white; padding: 40px; border-radius: 4px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-bottom: 4px solid var(--primary-blue); transition: 0.3s; }
+        .strategy-card:hover { transform: translateY(-10px); border-bottom-color: var(--accent-orange); }
+        .strategy-card i { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 20px; display: block; }
+        .strategy-card h4 { margin-bottom: 15px; font-size: 1.25rem; color: var(--dark-blue); }
+
+        /* Results Section */
+        .results-section { background: #fff; padding: 60px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .results-flex { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 30px; }
+        .result-item h3 { font-size: 2.8rem; color: var(--primary-blue); margin-bottom: 5px; font-weight: 800; }
+        .result-item p { font-weight: 600; color: #666; }
+
+        /* Floating CTA */
+        .side-cta { position: fixed; right: 0; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: right bottom; background: var(--accent-orange); color: white; padding: 12px 25px; font-weight: bold; cursor: pointer; border-radius: 10px 10px 0 0; z-index: 999; }
+
+        /* Popup Form */
+        .popup { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
+        .popup-content { background: #fff; margin: 5% auto; padding: 40px; border-radius: 15px; width: 90%; max-width: 500px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; }
+        .form-group { margin-bottom: 15px; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+        .popup-submit-btn { width: 100%; padding: 15px; background: var(--accent-orange); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+
+        /* Footer */
+        footer { background: var(--dark-blue); color: white; padding: 80px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; }
+        .footer-links ul { list-style: none; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; line-height: 2; transition: 0.3s; }
+        .footer-links a:hover { color: var(--accent-orange); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 40px; }
+
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .service-hero h1 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">
+                <img src="/Images/logo.jpg" alt="Logo" style="height: 40px;"> Inspirito
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="google-ads.html">Google Ads</a></li>
+                <li><a href="sales-execution.html">Supervision</a></li>
+                <li><a href="sales-strategy.html" class="active">Sales Strategy</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleForm()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="service-hero">
+        <div class="container">
+            <span class="orange-heading" style="color: white; opacity: 0.8;">Actionable Playbooks</span>
+            <h1>Sales Strategy & Process Improvement</h1>
+            <p>Strategy is only as good as its execution. We replace guesswork with data-backed playbooks designed to shorten your sales cycle and maximize your closing ratios.</p>
+            <button class="popup-submit-btn" style="max-width: 300px;" onclick="toggleForm()">Upgrade My Strategy</button>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="orange-heading">Beyond Theory</span>
+                    <h2>Practical Tactics for Real-World Closing</h2>
+                    <p>Generic sales training rarely sticks. At Inspirito, we don't just "coach"—we engineer. We audit your existing conversations, identify where the friction lies, and build custom playbooks that empower your team to handle objections with confidence and move deals forward with clarity.</p>
+                </div>
+                <div style="background: var(--light-bg); padding: 40px; border-radius: 8px;">
+                    <h4 style="color: var(--primary-blue); margin-bottom: 20px;">Why Our Approach Works:</h4>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> <strong>Funnel-Specific:</strong> Strategies built on <em>your</em> data.</li>
+                        <li style="margin-bottom: 12px;"><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> <strong>Execution Ready:</strong> No fluff, just practical steps.</li>
+                        <li><i class="fas fa-check-circle" style="color: var(--accent-orange);"></i> <strong>Shortened Cycles:</strong> Removing the hurdles that slow deals down.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="strategy-grid">
+                <div class="strategy-card">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h4>Approach Review</h4>
+                    <p>A surgical audit of your current pitch, cadence, and sales collateral.</p>
+                </div>
+                <div class="strategy-card">
+                    <i class="fas fa-handshake-slash"></i>
+                    <h4>Friction ID</h4>
+                    <p>Locating the specific objections and hurdles that stall your deals.</p>
+                </div>
+                <div class="strategy-card">
+                    <i class="fas fa-book-open"></i>
+                    <h4>Playbook Refinement</h4>
+                    <p>Developing custom sales scripts and response playbooks for your team.</p>
+                </div>
+                <div class="strategy-card">
+                    <i class="fas fa-eye"></i>
+                    <h4>Ongoing Monitoring</h4>
+                    <p>Continuous feedback loops to ensure strategy translates into sales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <div class="results-flex">
+                <div class="result-item">
+                    <h3>15–35%</h3>
+                    <p>Closing Ratio Lift</p>
+                </div>
+                <div class="result-item">
+                    <h3>Shorter</h3>
+                    <p>Sales Cycles</p>
+                </div>
+                <div class="result-item">
+                    <h3>Higher</h3>
+                    <p>Deal Confidence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="side-cta" onclick="toggleForm()">
+        <span>Quick Inquiry</span>
+    </div>
+
+    <div id="cta-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="toggleForm()">&times;</span>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3>Refine Your Sales Strategy</h3>
+                <p>Build a data-driven path to more closed deals.</p>
+            </div>
+            <form id="inquiry-form">
+                <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                <div class="form-group"><input type="email" placeholder="Business Email" required></div>
+                <div class="form-group"><input type="tel" placeholder="Phone Number" required></div>
+                <div class="form-group">
+                    <select required>
+                        <option value="sales-strategy" selected>Sales Strategy Improvement</option>
+                        <option value="lead-flow">Lead Flow Analysis</option>
+                        <option value="sales-execution">Sales Supervision</option>
+                    </select>
+                </div>
+                <div class="form-group"><textarea placeholder="What is your current closing rate? (Approximate)..." rows="3"></textarea></div>
+                <button type="submit" class="popup-submit-btn">Get My Strategy Session</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-grid">
+             <div>
+                <h3>Inspirito</h3>
+                <div class="company-address"
+                    style="margin: 20px 0; font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
+                    <p>📍 102, Shanti Niwas Building,<br>
+                        &nbsp;&nbsp;&nbsp;Behind Chitale Bandhu, Baner,<br>
+                        &nbsp;&nbsp;&nbsp;Pune - 411045</p>
+                    <p>📞 <a href="tel:+918928484777" style="color: inherit; text-decoration: none;">+91 89284 84777</a>
+                    </p>
+                    <p>✉️ <a href="mailto:Info@inspirito.in"
+                            style="color: inherit; text-decoration: none;">Info@inspirito.in</a></p>
+                    <p>🌐 <a href="https://www.inspirito.in" target="_blank"
+                            style="color: inherit; text-decoration: none;">www.inspirito.in</a></p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Strategy Services</h4>
+                <ul>
+                    <li><a href="sales-strategy.html">Sales Strategy</a></li>
+                    <li><a href="sales-execution.html">Execution Supervision</a></li>
+                    <li><a href="revenue-leakage.html">Leakage Identification</a></li>
+                </ul>
+            </div>
+             <div class="footer-links">
+                <h4>Contact Us</h4>
+                <div style="margin-top: 20px;">
+                    <i class="fab fa-linkedin" style="margin-right: 15px;"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram" style="margin-left: 15px;"></i>
+                </div>
+            </div>
+            
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Inspirito Digital Agency. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        function toggleForm() {
+            const popup = document.getElementById('cta-popup');
+            const isVisible = popup.style.display === 'block';
+            popup.style.display = isVisible ? 'none' : 'block';
+            document.body.style.overflow = isVisible ? 'auto' : 'hidden';
+        }
+        window.onclick = function(e) {
+            const popup = document.getElementById('cta-popup');
+            if (e.target === popup) toggleForm();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lead Flow & Sales Process Analysis | Inspirito Digital Agency</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #00416A;
+            --dark-blue: #002b4d;
+            --accent-orange: #f58220;
+            --text-gray: #444;
+            --light-bg: #f4f7fa;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { color: var(--text-gray); line-height: 1.6; overflow-x: hidden; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* Navigation */
+        nav { background: #fff; padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary-blue); text-decoration: none; display: flex; align-items: center; gap: 10px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-orange); }
+
+        /* Hero Section */
+        .service-hero { padding: 100px 0; background: linear-gradient(135deg, #001f33, var(--primary-blue)); color: white; text-align: center; }
+        .service-hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .service-hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; opacity: 0.9; }
+
+        /* Content Sections */
+        .section-padding { padding: 80px 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .orange-heading { color: var(--accent-orange); text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; font-weight: bold; margin-bottom: 10px; display: block; }
+        h2 { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 20px; }
+
+        /* Diagnostic List */
+        .diagnostic-box { background: var(--light-bg); padding: 40px; border-radius: 20px; border-right: 8px solid var(--primary-blue); }
+        .diagnostic-box ul { list-style: none; }
+        .diagnostic-box li { margin-bottom: 15px; display: flex; gap: 10px; align-items: flex-start; }
+        .diagnostic-box i { color: var(--accent-orange); margin-top: 5px; }
+
+        /* Workflow Grid */
+        .workflow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 50px; }
+        .flow-card { background: white; padding: 35px; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.05); position: relative; transition: 0.3s; }
+        .flow-card:hover { transform: translateY(-10px); }
+        .step-num { position: absolute; top: -15px; left: 20px; background: var(--accent-orange); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .flow-card h4 { margin-top: 10px; margin-bottom: 12px; color: var(--primary-blue); }
+
+        /* Results Bar */
+        .results-section { background: var(--dark-blue); color: white; padding: 60px 0; border-radius: 20px; margin: 40px 0; }
+        .results-flex { display: flex; justify-content: space-around; text-align: center; flex-wrap: wrap; gap: 30px; }
+        .result-item h3 { font-size: 2.5rem; color: var(--accent-orange); margin-bottom: 5px; }
+
+        /* Side CTA */
+        .side-cta { position: fixed; right: 0; top: 50%; transform: translateY(-50%) rotate(-90deg); transform-origin: right bottom; background: var(--accent-orange); color: white; padding: 12px 25px; font-weight: bold; cursor: pointer; border-radius: 10px 10px 0 0; z-index: 999; }
+
+        /* Popup Form */
+        .popup { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); }
+        .popup-content { background: #fff; margin: 5% auto; padding: 40px; border-radius: 15px; width: 90%; max-width: 500px; position: relative; }
+        .close-btn { position: absolute; right: 20px; top: 15px; font-size: 24px; cursor: pointer; }
+        .form-group { margin-bottom: 15px; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+        .popup-submit-btn { width: 100%; padding: 15px; background: var(--accent-orange); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; }
+
+        /* Footer */
+        footer { background: var(--dark-blue); color: white; padding: 80px 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-links ul { list-style: none; }
+        .footer-links a { color: rgba(255,255,255,0.7); text-decoration: none; line-height: 2; transition: 0.3s; }
+        .footer-links a:hover { color: var(--accent-orange); }
+        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; text-align: center; font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+
+        @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } .service-hero h1 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <a href="index.html" class="logo">
+                <img src="/Images/logo.jpg" alt="Logo" style="height: 40px;"> Inspirito
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="google-ads.html">Google Ads</a></li>
+                <li><a href="landing-pages.html">Landing Pages</a></li>
+                <li><a href="lead-flow.html" class="active">Lead Flow</a></li>
+                <li><a href="javascript:void(0)" onclick="toggleForm()">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="service-hero">
+        <div class="container">
+            <span class="orange-heading" style="color: white; opacity: 0.8;">Funnel Optimization</span>
+            <h1>Lead Flow & Sales Process Analysis</h1>
+            <p>A lead is only as valuable as the process that follows it. We dissect your lead journey to uncover exactly where revenue is leaking and how to plug the holes.</p>
+            <button class="popup-submit-btn" style="max-width: 280px;" onclick="toggleForm()">Audit My Lead Flow</button>
+        </div>
+    </header>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <span class="orange-heading">Stop the Leakage</span>
+                    <h2>Is Your Pipeline Broken?</h2>
+                    <p>Generating leads is only half the battle. If your response times are slow, your ownership is unclear, or your follow-up sequence is inconsistent, you are throwing marketing dollars away. We analyze the <strong>entire lifespan</strong> of a lead—from the moment it hits your CRM to the final contract signature—to build a predictable revenue engine.</p>
+                </div>
+                <div class="diagnostic-box">
+                    <ul>
+                        <li><i class="fas fa-search"></i> <strong>Journey Mapping:</strong> Identifying every touchpoint and friction area.</li>
+                        <li><i class="fas fa-clock"></i> <strong>Speed-to-Lead:</strong> Auditing response times to maximize conversion.</li>
+                        <li><i class="fas fa-users"></i> <strong>Ownership Audit:</strong> Ensuring no lead ever "falls through the cracks."</li>
+                    </ul>
+                </div>
+            </div>
+
+            
+
+            <div class="workflow-grid">
+                <div class="flow-card">
+                    <div class="step-num">01</div>
+                    <h4>Journey Mapping</h4>
+                    <p>Visualizing your current lead journey to see the "big picture" of your sales funnel.</p>
+                </div>
+                <div class="flow-card">
+                    <div class="step-num">02</div>
+                    <h4>Response Audit</h4>
+                    <p>Testing and reviewing response times and team accountability levels.</p>
+                </div>
+                <div class="flow-card">
+                    <div class="step-num">03</div>
+                    <h4>Drop-off ID</h4>
+                    <p>Pinpointing the exact stages where prospects are losing interest or disappearing.</p>
+                </div>
+                <div class="flow-card">
+                    <div class="step-num">04</div>
+                    <h4>Benchmark Setup</h4>
+                    <p>Establishing clear KPIs for your sales team to maintain high performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="results-section">
+            <div class="results-flex">
+                <div class="result-item">
+                    <h3>3–7</h3>
+                    <p>Leakage Points Plugged</p>
+                </div>
+                <div class="result-item">
+                    <h3>100%</h3>
+                    <p>Pipeline Visibility</p>
+                </div>
+                <div class="result-item">
+                    <h3>High</h3>
+                    <p>Revenue Predictability</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="side-cta" onclick="toggleForm()">
+        <span>Quick Inquiry</span>
+    </div>
+
+    <div id="cta-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="toggleForm()">&times;</span>
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3>Request a Process Audit</h3>
+                <p>Let's find out where your revenue is leaking.</p>
+            </div>
+            <form id="inquiry-form">
+                <div class="form-group"><input type="text" placeholder="Full Name" required></div>
+                <div class="form-group"><input type="email" placeholder="Business Email" required></div>
+                <div class="form-group"><input type="tel" placeholder="Phone Number" required></div>
+                <div class="form-group">
+                    <select required>
+                        <option value="lead-flow" selected>Lead Flow Analysis</option>
+                        <option value="google-ads">Google Ads (PPC)</option>
+                        <option value="sales-strategy">Sales Strategy</option>
+                    </select>
+                </div>
+                <div class="form-group"><textarea placeholder="What is your biggest sales funnel challenge?..." rows="3"></textarea></div>
+                <button type="submit" class="popup-submit-btn">Submit My Request</button>
+            </form>
+        </div>
+    </div>
+
+     <footer>
+        <div class="container footer-grid">
+            <div>
+                <h3>Inspirito</h3>
+                <div class="company-address"
+                    style="margin: 20px 0; font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.8;">
+                    <p>📍 102, Shanti Niwas Building,<br>
+                        &nbsp;&nbsp;&nbsp;Behind Chitale Bandhu, Baner,<br>
+                        &nbsp;&nbsp;&nbsp;Pune - 411045</p>
+                    <p>📞 <a href="tel:+918928484777" style="color: inherit; text-decoration: none;">+91 89284 84777</a>
+                    </p>
+                    <p>✉️ <a href="mailto:Info@inspirito.in"
+                            style="color: inherit; text-decoration: none;">Info@inspirito.in</a></p>
+                    <p>🌐 <a href="https://www.inspirito.in" target="_blank"
+                            style="color: inherit; text-decoration: none;">www.inspirito.in</a></p>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Core Services</h4>
+                <ul>
+                    <li><a href="google-ads.html">Google Ads</a></li>
+                    <li><a href="landing-pages.html">Landing Pages</a></li>
+                    <li><a href="index.html#services">Execution Workflow</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contact Us</h4>
+                <div style="margin-top: 20px;">
+                    <i class="fab fa-linkedin" style="margin-right: 15px;"></i>
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-instagram" style="margin-left: 15px;"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2025 Inspirito Digital Agency. All rights reserved.
+        </div>
+    </footer>
+    
+    <script>
+        function toggleForm() {
+            const popup = document.getElementById('cta-popup');
+            const isVisible = popup.style.display === 'block';
+            popup.style.display = isVisible ? 'none' : 'block';
+            document.body.style.overflow = isVisible ? 'auto' : 'hidden';
+        }
+
+        window.onclick = function(e) {
+            const popup = document.getElementById('cta-popup');
+            if (e.target === popup) toggleForm();
+        }
+    </script>
+</body>
+</html>
